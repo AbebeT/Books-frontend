@@ -1,0 +1,32 @@
+[
+
+{
+  "id": 4,
+  "title": "Homo Deus",
+  "summary": ": A Brief History of tomorrow",
+  "rating" : 4,
+  "imgSrc" : "/assets/data/homo deus.png"
+},
+  {
+    "id": 1,
+    "title": "1984",
+    "summary": "Fictional book by Orwell",
+    "rating" : 5,
+    "imgSrc" : "/assets/data/1984.png"
+  },
+  {
+    "id": 2,
+    "title": "Oromay",
+    "summary": "Amharic fictional book by Bealu Girma",
+    "rating" : 4,
+    "imgSrc" : "/assets/data/oromay.png"
+  }
+,
+  {
+    "id": 3,
+    "title": "Sapiens",
+    "summary": ": A Brief History of Humankind",
+    "rating" : 4,
+    "imgSrc" : "/assets/data/sapiens.png"
+  }
+]
