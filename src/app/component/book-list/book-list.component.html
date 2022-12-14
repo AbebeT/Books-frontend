@@ -1,7 +1,5 @@
 
 <div class="mx-auto">
       <app-book-details *ngFor="let book of books" [book] = "book"
-                        (editBookId)="handleEdit($event)"
-                        (removeBookId)="handleRemove($event)"
       (selectedBookId)="onSelect($event)"></app-book-details>
 </div>

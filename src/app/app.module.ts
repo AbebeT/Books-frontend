@@ -14,11 +14,18 @@ import { BookEditComponent } from './component/book-list/book-item/book-edit/boo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BookAddComponent } from './component/book-add/book-add.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { LoginComponent } from './component/login/login.component';
+import {MatIconModule} from '@angular/material/icon';
+import { LogoComponent } from './component/logo/logo.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/books', pathMatch: 'full'},
   {path: "books", component: BookListComponent},
-  {path: 'books/:id', component: BookItemComponent}
+  {path: 'books/:id', component: BookItemComponent},
+  {path: 'add-book', component: BookAddComponent},
+  {path: 'login', component: LoginComponent}
 ]
 
 @NgModule({
@@ -29,6 +36,10 @@ const routes: Routes = [
     BookItemComponent,
     NavbarComponent,
     BookEditComponent,
+    BookAddComponent,
+    FooterComponent,
+    LoginComponent,
+    LogoComponent,
     
   ],
   imports: [
@@ -39,7 +50,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatSlideToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

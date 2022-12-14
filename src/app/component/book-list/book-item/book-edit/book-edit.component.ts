@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { BookServiceService } from './../../../../service/book-service.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Book } from 'src/app/model/book';
 
@@ -9,18 +10,24 @@ import { Book } from 'src/app/model/book';
   styleUrls: ['./book-edit.component.css'],
 })
 export class BookEditComponent implements OnInit {
+
   @Input()
   book: Book;
+
+  @Output()
+  updateClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  @Output()
+  cancelClicked: EventEmitter<boolean> = new EventEmitter<boolean>(false);
 
   form: FormGroup = new FormGroup({
     title: new FormControl(''),
     summary: new FormControl(''),
     rating: new FormControl(),
   });
-  constructor(private service: BookServiceService) {}
+  constructor(private service: BookServiceService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log('book on edit', this.book);
     this.form.setValue({
       title: this.book.title,
       rating: this.book.rating,
@@ -28,8 +35,23 @@ export class BookEditComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    console.log("onEdit: ", this.form.value);
-    
+  onCancel() {
+    this.cancelClicked.emit(true);
+  }
+
+  onSubmit(value: Book) {
+    this.updateClicked.emit(true);
+
+    let booktemp: Book = this.book;
+    booktemp.summary = value.summary;
+    booktemp.title = value.title;
+    booktemp.rating = value.rating;
+
+    let updatedBook: Book;
+    this.service
+      .updateBookRecord(booktemp)
+      .subscribe((data) => (updatedBook = data));
+
+      this.router.navigate(['/books', this.book.id]);
   }
 }

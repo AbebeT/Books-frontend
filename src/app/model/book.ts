@@ -3,6 +3,6 @@ export interface Book {
   title: string,
   summary: string,
   rating : number
-  imgSrc: string,
+  imgSrc?: string,
   timeCreated: string
 };

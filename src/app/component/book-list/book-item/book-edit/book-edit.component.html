@@ -1,9 +1,9 @@
 <form class="mb-8 mx-auto"
  style="max-width: 640px; margin-top: 34px"
  [formGroup]="form"
- (ngOnSubmit)="onSubmit()"]
+ (ngSubmit)="onSubmit(form.value)"
  >
-  <h2>Edit book</h2>
+  <h2>Update book record</h2>
   <div class="form-group">
     <label for="exampleFormControlInput1">Title</label>
     <input type="text" class="form-control" id="exampleFormControlInput1" 
@@ -21,6 +21,7 @@
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
     formControlName="summary"></textarea>
   </div>
-  <button type="button" class="btn btn-primary" style="margin-top: 10px">Submit</button>
+  <input type = "submit" style="margin-top: 10px" class = "forsubmit" value = "Update">
+  <button (click)="onCancel()">Cancel</button>
 
 </form>
