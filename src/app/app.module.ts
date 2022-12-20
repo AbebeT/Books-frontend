@@ -19,13 +19,17 @@ import { FooterComponent } from './component/footer/footer.component';
 import { LoginComponent } from './component/login/login.component';
 import {MatIconModule} from '@angular/material/icon';
 import { LogoComponent } from './component/logo/logo.component';
+import { StoreModule } from '@ngrx/store';
+import { loginReducer } from './store/login.reducer';
+import { RegisterComponent } from './component/user/register/register.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/books', pathMatch: 'full'},
   {path: "books", component: BookListComponent},
   {path: 'books/:id', component: BookItemComponent},
   {path: 'add-book', component: BookAddComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
 ]
 
 @NgModule({
@@ -40,6 +44,7 @@ const routes: Routes = [
     FooterComponent,
     LoginComponent,
     LogoComponent,
+    RegisterComponent,
     
   ],
   imports: [
@@ -51,7 +56,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    StoreModule.forRoot({ login : loginReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

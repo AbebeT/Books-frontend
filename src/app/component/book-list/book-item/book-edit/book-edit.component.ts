@@ -42,10 +42,13 @@ export class BookEditComponent implements OnInit {
   onSubmit(value: Book) {
     this.updateClicked.emit(true);
 
-    let booktemp: Book = this.book;
+    let booktemp: Book = JSON.parse(JSON.stringify(this.book));
     booktemp.summary = value.summary;
     booktemp.title = value.title;
     booktemp.rating = value.rating;
+
+    console.log("bookTemp: ", booktemp);
+    
 
     let updatedBook: Book;
     this.service

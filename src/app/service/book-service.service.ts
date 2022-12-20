@@ -24,7 +24,8 @@ export class BookServiceService {
   }
 
   updateBookRecord(book: Book): Observable<Book>{
-    return this.http.put<Book>(this.url, book);
+    const newUrl = `${this.url}/${book.id}`;
+    return this.http.put<Book>(newUrl, book);
   }
   deleteBookById(id: number){
     const newUrl = `${this.url}/${id}`
