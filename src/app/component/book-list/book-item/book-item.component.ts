@@ -52,10 +52,17 @@ export class BookItemComponent implements OnInit {
 
   onRemove(id: number) {
     this.service.deleteBookById(id).subscribe();
-    this.router.navigate(['/books']);
+    this.navigateToBooks();
   }
 
-  onCancelButtonClicked(){
+  onCancelButtonClicked() {
     this.editClicked = false;
+  }
+
+  navigateToBooks() {
+    this.router.navigate(['/books'])
+    .then(()=>{
+      window.location.reload();
+    });
   }
 }

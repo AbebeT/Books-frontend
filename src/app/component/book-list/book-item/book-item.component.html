@@ -8,7 +8,7 @@
     <p class="card-text"><small class="text-muted">Last updated {{ toDate(book.timeCreated) }}</small></p>
     <button *ngIf="!editClicked" type="button" class="btn btn-dark"
             (click)="onEdit()">Edit</button>
-    <button type="button" class="btn btn-warning" style="margin-left: 5px"
+    <button  *ngIf="!editClicked" type="button" class="btn btn-warning" style="margin-left: 5px"
             (click)="onRemove(book.id)">Remove</button>
         
   </div>

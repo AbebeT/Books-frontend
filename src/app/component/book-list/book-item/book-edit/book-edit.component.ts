@@ -46,15 +46,18 @@ export class BookEditComponent implements OnInit {
     booktemp.summary = value.summary;
     booktemp.title = value.title;
     booktemp.rating = value.rating;
-
-    console.log("bookTemp: ", booktemp);
-    
-
-    let updatedBook: Book;
     this.service
       .updateBookRecord(booktemp)
-      .subscribe((data) => (updatedBook = data));
-
-      this.router.navigate(['/books', this.book.id]);
+      .subscribe((data) => {
+        (this.book = data);
+        this.reloadCurrentRoute();
+      });
   }
+
+  reloadCurrentRoute() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
+}
 }

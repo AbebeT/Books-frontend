@@ -27,8 +27,15 @@ export class BookAddComponent implements OnInit {
 
   onSubmit(value: Book) {
     this.service.addBookRecord(value).subscribe();
-    this.router.navigate(["/books"]);
+    this.navigateToBooks();
 
+  }
+
+  navigateToBooks() {
+    this.router.navigate(['/books'])
+    .then(()=>{
+      window.location.reload();
+    });
   }
 
 }
