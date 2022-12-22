@@ -1,7 +1,7 @@
 export interface UserRegister {
-    name: string,
+    firstName: string,
+    lastName: string,
     email: string,
-    password: string,
-    repeatPassword: string,
+    password: string
     agree: boolean,
 }

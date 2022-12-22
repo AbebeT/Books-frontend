@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Book } from '../../../model/book';
 import { BookServiceService } from '../../../service/book-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-book-item',
@@ -10,18 +11,24 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./book-item.component.css'],
 })
 export class BookItemComponent implements OnInit {
+
+  isUserLoggedIn: boolean;
   editClicked: boolean = false;
 
   book: Book;
   constructor(
     private service: BookServiceService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private store: Store<{ isLoggedIn: { isLoggedIn: boolean } }>
   ) {}
 
   ngOnInit(): void {
     const id = parseInt(this.route.snapshot.params['id']);
     this.service.getDataById(id).subscribe((data) => (this.book = data));
+    this.store.select('isLoggedIn').subscribe((data) => {
+    this.isUserLoggedIn = data.isLoggedIn;
+    });
   }
 
   onEdit() {

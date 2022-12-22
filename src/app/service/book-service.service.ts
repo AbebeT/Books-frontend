@@ -29,7 +29,6 @@ export class BookServiceService {
   }
   deleteBookById(id: number){
     const newUrl = `${this.url}/${id}`
-    console.log("url: ", newUrl );
     return this.http.delete<Book>(newUrl);
   }
 

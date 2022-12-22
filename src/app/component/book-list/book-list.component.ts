@@ -25,12 +25,10 @@ export class BookListComponent implements OnInit {
 
   handleEdit(id: number | any) {
     this.editId = id;
-    console.log("from parent: id, ", this.editId);
   }
 
   handleRemove(id: number | any) {
     this.removeId = id;
-    console.log("from parent: id, ", this.removeId);
   }
 
   onSelect(id: number | any) {

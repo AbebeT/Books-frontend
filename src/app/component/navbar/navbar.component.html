@@ -13,13 +13,16 @@
   <!-- <div class=" my-2 my-lg-0" style="margin-right: 20px">
     <mat-icon style="color: white">add_shopping_cart</mat-icon>
   </div> -->
-  <div *ngIf="!isLoggedIn" class=" my-2 my-lg-0" style="margin-right: 20px">
+  <div *ngIf="!isUserLoggedIn" class=" my-2 my-lg-0" style="margin-right: 20px">
     <a class="nav-link" routerLink="/login" ><button class="btn my-2 my-sm-0" style="color: white ;"  (click)="onLogin()">Login</button></a>
   </div>
-  <div *ngIf="isLoggedIn" class=" my-2 my-lg-0" style="margin-right: 20px">
+  <div *ngIf="isUserLoggedIn" class=" my-2 my-lg-0" style="margin-right: 20px">
     <a class="nav-link" routerLink="/books"><button class="btn my-2 my-sm-0" style="color: white ;"  (click)="onLogout()">Logout</button></a>
   </div>
-  <div class=" my-2 my-lg-0" style="margin-right: 20px">
+  <div *ngIf="!isUserLoggedIn" class=" my-2 my-lg-0" style="margin-right: 20px">
     <a class="nav-link" routerLink="/register"><button class="btn my-2 my-sm-0" style="color: white ;">Register</button></a>
   </div>
+  <!-- <div style="color: white; margin-right: 10px;">
+    {{isUserLoggedIn}}
+  </div> -->
 </nav>  

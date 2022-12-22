@@ -51,6 +51,7 @@ export class BookEditComponent implements OnInit {
       .subscribe((data) => {
         (this.book = data);
         this.reloadCurrentRoute();
+        this.router.navigate(["/books", this.book.id])
       });
   }
 

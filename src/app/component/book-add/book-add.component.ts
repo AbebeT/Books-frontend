@@ -26,6 +26,7 @@ export class BookAddComponent implements OnInit {
   }
 
   onSubmit(value: Book) {
+    value.imgSrc = "/assets/data/default.png"
     this.service.addBookRecord(value).subscribe();
     this.navigateToBooks();
 
